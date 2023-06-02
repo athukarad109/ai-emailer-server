@@ -69,10 +69,20 @@ app.get('/generate-mail', async (req, res) => {
     let sub = lines.splice(0, 1)[0]
     let subj = sub.substring(9, sub.length)
 
-    let newText = lines.join('\n');
+    let body = lines.join('\n');
 
-    send_mail(subj, newText, to_email);
-    res.json({"subject": subj, "body": newText})
+    res.json({"subject": subj, "body": body})
+})
+
+
+app.post('/send-email', (req, res) => {
+    const {subj, body, to_email} = req.body;
+    try{
+        send_mail(subj, body, to_email);
+    }catch(e){
+        res.status(500).json({'Error': e})
+    }
+    res.status(200).json({"Status":"Success"})
 })
 
 
