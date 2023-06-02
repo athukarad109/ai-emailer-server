@@ -42,7 +42,7 @@ async function send_mail (sub, text, to_email) {
             console.log(error)
         }
         else{
-            console.log("Success" + info.response);
+            console.log("Success");
         }
     });
 
