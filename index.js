@@ -52,7 +52,7 @@ app.get('/', async (req, res) => {
     res.send('Hello There')
 })
 
-app.get('/generate-mail', async (req, res) => {
+app.post('/generate-mail', async (req, res) => {
 
     const {your_name, to_name, subject, to_email} = req.body;
 
