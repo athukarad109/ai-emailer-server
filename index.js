@@ -56,7 +56,7 @@ app.post('/generate-mail', async (req, res) => {
 
     const {your_name, to_name, subject, to_email} = req.body;
 
-    const prompt = `Write a mail from ${your_name}, education-BTech, working as project enginner in wipro for 1 year, to ${to_name} regarding ${subject} don't mention eduction, only mention skills. Write subject as 'subject: [subject text]'`
+    const prompt = `Write a mail from ${your_name}, education-BTech, working as project enginner in wipro for 1 year, to ${to_name} regarding ${subject} don't mention eduction, only mention skills. Keep it short, Write subject as 'subject: [subject text]'`
 
     const completion = await openai.createChatCompletion({
         model: "gpt-3.5-turbo",
